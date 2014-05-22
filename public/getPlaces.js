@@ -30,7 +30,7 @@ function getPlaces() {
     return places;
 }
 
-//Get Coords0
+//Get Coords
 function getCoords(lat1, lat2, lon1, lon2) {
     var coords = [];
     coords[0] = lat1;
@@ -62,7 +62,73 @@ function avg(a, b) {
     return d;
 }
 
+/*
+input: places[[lat,lon],[lat,lon],..]
 
+output: google.maps.LatLng[] googleCoords[google.mapsLatLng[],google.mapsLatLng[]]
+*/
+
+function getGoogleCoords(places) {
+
+    var googleCoords = [];
+
+    for (i = 0; i < places.length; i += 1) {
+        //assign the nested array to an new array so we can access it indecies
+        var coords = [];
+        coords = places[i];
+        //assign the first index to the lat variable
+        var lat = coords[0];
+        //assign the second index to the lon variable
+        var lon = coords[1];
+
+        var myGooglePlace = new google.maps.LatLng(lat, lon);
+
+        googleCoords[i] = myGooglePlace;
+
+    }
+
+    return googleCoords;
+    //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+}
+
+
+
+function dropMarkersCenter() {
+    var places = getPlaces();
+    for (i = 0; i < places.length; i += 1) {
+        var thisPlace = [];
+        thisPlace = places[i];
+        var lat = thisPlace[0];
+        var lon = thisPlace[1];
+        var markerLatLon = new google.maps.LatLng(lat, lon);
+        var marker = new google.maps.Marker({
+            position: markerLatLon,
+            map: map,
+            title: lat + ', ' + lon
+        });
+    }
+
+
+}
+/*
+function initialize() {
+    var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+    var mapOptions = {
+        zoom: 4,
+        center: myLatlng
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);*/
+
+//drop map markers at the coords stored in the Place array(
 
 /*
 function getCenter(lat1, lat2, lon1, lon2) {
