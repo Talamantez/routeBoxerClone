@@ -1,13 +1,14 @@
-/*
-For each box
-get coords
-find Center
-print CenterCoords;
-*/
+function logit() {
+    console.log('hi');
+}
 
-//get an array of the lat long coords of the centers of your boxes from routeBoxer
+//For each box
+//get coords
+//find Center
+//print CenterCoords;
+
+//For each box
 function getPlaces() {
-    //make an array called "places" to store our coord arrays
     var places = [];
 
     for (i = 0; i < boxpolys.length; i += 1) {
@@ -24,11 +25,12 @@ function getPlaces() {
         center = getCenter(boxCoords);
         //push to the places array
         places[i] = center;
+        //console.log('assigning ' + center);
     }
     return places;
 }
 
-//Get coords array from the corner lat lon coords for the routeBoxer boxes
+//Get Coords
 function getCoords(lat1, lat2, lon1, lon2) {
     var coords = [];
     coords[0] = lat1;
@@ -39,7 +41,7 @@ function getCoords(lat1, lat2, lon1, lon2) {
     return coords;
 }
 
-//Get center of box, accepts a the coord array from getCoords() as an argument
+//Get center of box, accepts a coord array as an argument
 function getCenter(coords) {
 
     var latCenter = avg(coords[0], coords[1]);
@@ -52,8 +54,7 @@ function getCenter(coords) {
     console.log(Center[0], Center[1]);
     return (Center);
 }
-
-//mean 2 numbers
+//average 2 numbers
 
 function avg(a, b) {
     var c = a + b;
@@ -62,15 +63,9 @@ function avg(a, b) {
 }
 
 /*
-take in the coordinates array Places and export an array of coords that are
-formatted so you can talk to Google Places
-
 input: places[[lat,lon],[lat,lon],..]
 
 output: google.maps.LatLng[] googleCoords[google.mapsLatLng[],google.mapsLatLng[]]
-
-
-
 */
 
 function getGoogleCoords(places) {
@@ -115,3 +110,37 @@ function dropMarkersCenter() {
 
 
 }
+/*
+function initialize() {
+    var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+    var mapOptions = {
+        zoom: 4,
+        center: myLatlng
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);*/
+
+//drop map markers at the coords stored in the Place array(
+
+/*
+function getCenter(lat1, lat2, lon1, lon2) {
+
+    var latCenter = avg(lat1, lat2);
+    var lonCenter = avg(lon1, lon2);
+
+    var Center = [];
+    Center[0] = latCenter;
+    Center[1] = lonCenter;
+
+    console.log(Center[0], Center[1]);
+    return (Center);
+}
+*/
