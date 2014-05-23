@@ -30,7 +30,7 @@ function getPlaces() {
     return places;
 }
 
-//Get Coords
+//Get Corner Coords
 function getCoords(lat1, lat2, lon1, lon2) {
     var coords = [];
     coords[0] = lat1;
@@ -91,8 +91,6 @@ function getGoogleCoords(places) {
     //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
 }
 
-
-
 function dropMarkersCenter() {
     var places = getPlaces();
     for (i = 0; i < places.length; i += 1) {
@@ -107,8 +105,6 @@ function dropMarkersCenter() {
             title: lat + ', ' + lon
         });
     }
-
-
 }
 /*
 function initialize() {
@@ -129,7 +125,6 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);*/
 
 //drop map markers at the coords stored in the Place array(
-
 /*
 function getCenter(lat1, lat2, lon1, lon2) {
 

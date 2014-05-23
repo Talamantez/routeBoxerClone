@@ -5,16 +5,19 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Google Maps JavaScript API Search Along a Route Example</title>
-    <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=cd ..false" type="text/javascript"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.exp?key={AIzaSyAckmSzoxdbOdFhNltb9ufCWuTackzcupc}&sensor=false&libraries=places" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./public/routeBoxer.js" type="text/javascript"></script>
     <script src="./public/getPlaces.js" type="text/javascript"></script>
+    <script src="./public/googlePlaces.js" type="text/javascript"></script>
+    <script src="./public/getDirections.js" type="text/javascript"></script>
     <script type="text/javascript">
 
     var map = null;
     var boxpolys = null;
     var directions = null;
     var routeBoxer = null;
-    var distance = null; // km
+    var distance = null;
 
     function initialize() {
       // Default the map view to the continental U.S.
@@ -95,7 +98,7 @@
     Box within at least <input type="text" id="distance" value="30" size="2">miles
     of the route from <input type="text" id="from" value="denver"/>
     to <input type="text" id="to" value="dallas"/>
-    <input type="submit" onclick="route()"/>
+    <input id ="executeDirectionsSearch" type="submit" onclick="route()"/>
 
   </body>
 
