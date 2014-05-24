@@ -10,13 +10,8 @@ function getGoogleCoords(places) {
         var lat = coords[0];
         //assign the second index to the lon variable
         var lon = coords[1];
-
         var myGooglePlace = new google.maps.LatLng(lat, lon);
-
         googleCoords[i] = myGooglePlace;
-
     }
-
     return googleCoords;
-    //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
 }

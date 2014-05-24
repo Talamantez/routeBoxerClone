@@ -1,0 +1,47 @@
+culture.txt
+
+MENLO innovation
+
+Rich Sheridan
+
+Chief Story
+CEO, Chief Storyteller
+@menlopez
+
+Joy Inc
+
+110 baud
+
+-scuplt bits
+
+-UM, Ann Arbor
+
+-Trouble early in career
+
+-went from joy as a kid
+realized that software work world may be on
+the wrong track
+
+-contact them to find out about
+what they're looking for in talent
+
+-Industry issue
+    -how do you organize 10,000 humans?
+
+-have an open workspace
+
+-bring the client in and allow them to run your software
+
+-automated unit testing
+-simple, powerful, ignored
+-living, breathing, documentation
+
+books:
+the fifth discipline
+
+menloinnovations.com/joy/codefellows
+
+process of experimentation:
+ - respond to what happens
+
+

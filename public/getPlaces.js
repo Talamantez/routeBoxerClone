@@ -14,8 +14,9 @@
             //works up to here
             var request = {
                 location: myCoords,
-                radius: 500,
-                types: ['store']
+                radius: 1609.34, //one mile in meters
+                types: ['food']
+
             };
             service.nearbySearch(request, callback);
         }
@@ -25,8 +26,6 @@
 
         for (var i = 0; i < results.length; i++) {
 
-
-            //console.log(results[i].name);
             console.log(results[i].name);
             console.log(results[i].id);
             console.log(results[i].types);
