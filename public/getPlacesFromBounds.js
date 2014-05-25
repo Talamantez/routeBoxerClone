@@ -1,5 +1,4 @@
 //  make the following function with bounds object
-
 function getPlacesFromBounds(bounds) {
     //slow this down - try to batch load data
 
@@ -30,17 +29,19 @@ function getPlacesFromBounds(bounds) {
 }
 
 function callback(results, status) {
-    console.log('callback called');
-    console.log(results + status);
-    //getting a "ZERO_RESULTS" return from googles.
+        //console.log('callback called');
+        //console.log(results + status);
+        //getting a "ZERO_RESULTS" return from googles.
+
     for (var i = 0; i < results.length; i++) {
-       // console.log('callback results ' + [i] + results[i]);
-        console.log('about to log results details');
-        console.log('results.name: ' + results[i].name);
-        console.log(results[i].id);
-        console.log(results[i].types);
-        console.log(results[i].rating);
-        console.log(results[i].vicinity);
+       // console.log(results.toJSON());
+        //console.log('callback results ' + [i] + results[i]);
+        //console.log('about to log results details ' + countOfPlaces);
+          console.log('name: ' + results[i].name);
+        //console.log('id: ' +results[i].id);
+          console.log('types: '+results[i].types);
+          console.log('rating: '+results[i].rating);
+          console.log('vicinity: '+results[i].vicinity);
         //console.log(results[i].URL);
         //console.log(results[i].website);
 
@@ -50,11 +51,11 @@ function callback(results, status) {
             var limit = 20;
             for (var i = 0; i < limit; i++) {
                 createMarker(results[i]);
-                placesCount += 1;
             }
         } else {
             console.log('google.maps.places.PlacesServiceStatus Not Ok');
         }
+ 
     }
     //return placesCount;
 }
@@ -65,4 +66,6 @@ function createMarker(place) {
         map: map,
         position: place.geometry.location
     });
+
 } //createMarker
+
