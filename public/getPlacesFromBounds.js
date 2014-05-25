@@ -22,7 +22,8 @@ function getPlacesFromBounds(bounds) {
         //a bounds object as input?
 
         var request = {
-            bounds: myBounds
+            bounds: myBounds,
+            types: ['food']
         };
         service.nearbySearch(request, callback);
     }
@@ -33,13 +34,13 @@ function callback(results, status) {
     console.log(results + status);
     //getting a "ZERO_RESULTS" return from googles.
     for (var i = 0; i < results.length; i++) {
-        console.log('callback results ' + [i] + results[i]);
+       // console.log('callback results ' + [i] + results[i]);
         console.log('about to log results details');
         console.log('results.name: ' + results[i].name);
-        //console.log(results[i].id);
-        //console.log(results[i].types);
-        //console.log(results[i].rating);
-        //console.log(results[i].vicinity);
+        console.log(results[i].id);
+        console.log(results[i].types);
+        console.log(results[i].rating);
+        console.log(results[i].vicinity);
         //console.log(results[i].URL);
         //console.log(results[i].website);
 
