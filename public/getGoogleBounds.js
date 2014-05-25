@@ -15,10 +15,12 @@ function getGoogleBounds(rawBounds) {
         var myRawBounds = [];
         myRawBounds = rawBounds[i];
         console.log('myRawBounds: ' + myRawBounds);
-        console.log('myRawBounds[0]' + myRawBounds[0]);
-        console.log('myRawBounds[1]' + myRawBounds[1]);
+        //first index is swBounds
+        console.log('myRawBounds[0] SW bounds' + myRawBounds[0]);
+        //second index is neBounds
+        console.log('myRawBounds[1] NE bounds:' + myRawBounds[1]);
 
-        //make a RawSwBounds Array to store the SW bounds
+        //make a rawSwBounds Array to store the SW bounds
         var myRawSwBounds = [];
         myRawSwBounds = myRawBounds[0];
         console.log('myRawSwBounds: ' + myRawSwBounds);
@@ -60,13 +62,18 @@ function assembleBounds(swBounds, neBounds) {
     console.log('mySwBounds:' + mySwBounds);
     console.log('myNeBounds:' + myNeBounds);
 
+
+
     //split the ne and sw Bounds objects into lat and lon units
     var mySwBoundsLat = mySwBounds[0];
+    console.log('Sw Lat: expect to be 46ish:'+mySwBoundsLat );
     var mySwBoundsLon = mySwBounds[1];
-
+    console.log('Sw lon: expect to be -122ish '+mySwBoundsLon );
+    
     var myNeBoundsLat = myNeBounds[0];
+        console.log('Ne Lat: expect to be 46ish:'+myNeBoundsLat );
     var myNeBoundsLon = myNeBounds[1];
-    //log the new, split lat lons
+        console.log('Nw Lon: expect to be -122ish:'+myNeBoundsLon );
     console.log('mySwBoundsLat: ' + mySwBoundsLat);
     console.log('mySwBoundsLon: ' + mySwBoundsLon);
 
@@ -74,14 +81,12 @@ function assembleBounds(swBounds, neBounds) {
     console.log('myNeBoundsLon: ' + myNeBoundsLon);
 
 
-    //make googleLatLon objects for swBounds and neBounds
     var mySwGoogleLatLon = new google.maps.LatLng(mySwBoundsLat, mySwBoundsLon);
     var myNeGoogleLatLon = new google.maps.LatLng(myNeBoundsLat, myNeBoundsLon);
     //log the googleLatLon objects
     console.log('mySwGoogleLatLon: ' + mySwGoogleLatLon);
     console.log('myNeGoogleLatLon: ' + myNeGoogleLatLon);
-    //pass our googleLatLon objects in as arguments
-    //to the LatLngBounds constructor
+
 
     var myGoogleBounds = [];
     myGoogleBounds = new google.maps.LatLngBounds(

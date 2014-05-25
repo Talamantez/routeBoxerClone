@@ -23,7 +23,6 @@ function getPlacesFromBounds(bounds) {
 
         var request = {
             bounds: myBounds
-            //types: ['store']
         };
         service.nearbySearch(request, callback);
     }
@@ -34,18 +33,19 @@ function callback(results, status) {
     console.log(results + status);
     //getting a "ZERO_RESULTS" return from googles.
     for (var i = 0; i < results.length; i++) {
+        console.log('callback results ' + [i] + results[i]);
         console.log('about to log results details');
-        console.log(results[i].name);
-        console.log(results[i].id);
-        console.log(results[i].types);
-        console.log(results[i].rating);
-        console.log(results[i].vicinity);
+        console.log('results.name: ' + results[i].name);
+        //console.log(results[i].id);
+        //console.log(results[i].types);
+        //console.log(results[i].rating);
+        //console.log(results[i].vicinity);
         //console.log(results[i].URL);
         //console.log(results[i].website);
 
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             //request places every second
-            console.log('maps.places');
+            //console.log('maps.places');
             var limit = 20;
             for (var i = 0; i < limit; i++) {
                 createMarker(results[i]);

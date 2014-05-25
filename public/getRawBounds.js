@@ -3,13 +3,16 @@ function getRawBounds() {
 
     for (i = 0; i < boxpolys.length; i += 1) {
         var rawBoundsUnit = [];
-        var neCoords = getRawNeCoords(
-            boxpolys[i].bounds.Ba.k,
-            boxpolys[i].bounds.ra.k
-        );
         var swCoords = getRawSwCoords(
-            boxpolys[i].bounds.Ba.j,
+            boxpolys[i].bounds.Ba.k,
             boxpolys[i].bounds.ra.j
+
+
+        );
+
+        var neCoords = getRawNeCoords(
+            boxpolys[i].bounds.Ba.j,
+            boxpolys[i].bounds.ra.k
         );
 
         rawBoundsUnit[0] = swCoords;

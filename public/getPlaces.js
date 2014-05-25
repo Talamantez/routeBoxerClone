@@ -14,10 +14,11 @@
             //works up to here
             var request = {
                 location: myCoords,
-                radius: 1609.34, //one mile in meters
+                radius: 800, //1 mile in meters
                 types: ['food']
 
             };
+
             service.nearbySearch(request, callback);
         }
     }
@@ -25,6 +26,8 @@
     function callback(results, status) {
 
         for (var i = 0; i < results.length; i++) {
+            sleep(20);
+            console.log('slept for 20 millis');
 
             console.log(results[i].name);
             console.log(results[i].id);
@@ -55,6 +58,12 @@
         });
     } //createMarker
 
+    function sleep(ms) {
+        var start = new Date().getTime(),
+            expire = start + ms;
+        while (new Date().getTime() < expire) {}
+        return;
+    }
 
     /*    function addMore(results, placesCount) {
         var limit = 10 + placesCount;
