@@ -50,8 +50,9 @@ function callback(results, status) {
             //console.log('maps.places');
             var limit = 20;
             for (var i = 0; i < limit; i++) {
-                createMarker(results[i]);
-            }
+               createMarker(results[i]);
+              
+             }
         } else {
             console.log('google.maps.places.PlacesServiceStatus Not Ok');
         }
@@ -64,8 +65,10 @@ function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
+        animation: google.maps.Animation.DROP,
         position: place.geometry.location
     });
+
 
 } //createMarker
 
