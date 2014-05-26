@@ -3,6 +3,9 @@
     var directions = null;
     var routeBoxer = null;
     var distance = null;
+    //count how many times you've fired getPlacesFromBounds
+    //"PRC" is Places Request Count
+    var PRC = 0;
 
     function initialize() {
         // Default the map view to the continental U.S.
@@ -59,6 +62,8 @@
                 strokeOpacity: 1.0,
                 strokeColor: '#000000',
                 strokeWeight: 1,
+                // give an id to your boxpolys
+                id: i,
                 map: map
             });
         }
