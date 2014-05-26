@@ -117,7 +117,7 @@ function nearbyCallback(results, status) {
             //console.log('maps.places');
             var limit = results.length;
             for (var i = 0; i < limit; i += 1) {
-                createMarker(results[i]);
+                createMarkerLocal(results[i]);
 
             }
         } else {
@@ -140,7 +140,7 @@ function radarCallback(results, status) {
             //console.log('maps.places');
             //var limit = 20;
             for (var i = 0; i < results.length; i += 1) {
-                createMarker(results[i]);
+                createMarkerRadar(results[i]);
 
             }
         } else {
@@ -151,7 +151,17 @@ function radarCallback(results, status) {
     //return placesCount;
 }
 
-function createMarker(place) {
+function createMarkerRadar(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        animation: google.maps.Animation.DROP,
+        position: place.geometry.location
+    });
+
+
+} //createMarker
+function createMarkerNearby(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
