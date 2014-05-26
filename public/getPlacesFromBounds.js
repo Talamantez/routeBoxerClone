@@ -53,7 +53,7 @@ function getPlacesFromBounds(bounds) {
             };
             //service.radarSearch(request, callback);
             //service.nearbySearch(request, callback);
-            if (map.zoom > 10) {
+            if (map.zoom > 6) {
                 service.nearbySearch(request, nearbyCallback);
             } else {
                 service.radarSearch(request, radarCallback);
@@ -82,11 +82,13 @@ function getPlacesFromBounds(bounds) {
             };
             //service.radarSearch(request, callback);
             //service.nearbySearch(request, callback);
-            if (map.zoom > 10) {
+            if (map.zoom > 5) {
                 service.nearbySearch(request, nearbyCallback);
+                console.log('Nearby Search Fired');
             } else {
                 service.radarSearch(request, radarCallback);
                 console.log('radarSearch in progress');
+                console.log('Radar Search Fired');
             }
 
         }
@@ -117,7 +119,7 @@ function nearbyCallback(results, status) {
             //console.log('maps.places');
             var limit = results.length;
             for (var i = 0; i < limit; i += 1) {
-                createMarkerLocal(results[i]);
+                createMarkerNearby(results[i]);
 
             }
         } else {
