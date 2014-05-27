@@ -13,10 +13,6 @@ function getPlacesFromBounds(bounds) {
     googleBounds = bounds;
     console.log('googleBounds: ' + googleBounds);
     //make a variable that stores where we are in the places request
-
-
-
-
     //(googleBounds.length)-(googleBounds.length-10)
     //var first10 = (googleBounds.length) - (googleBounds.length - 10);
     //console.log('FIRST 10' + first10);
@@ -26,13 +22,12 @@ function getPlacesFromBounds(bounds) {
     if (googleBounds.length > 10) {
         var currentIndex = PRC * 10;
         console.log('currentIndex: ' + currentIndex);
-
-        if (googleBounds.length < currentIndex - (googleBounds.length % 10)) {
+        console.log('polys modulus' + googleBounds.length % 10);
+        if (googleBounds.length < currentIndex - (googleBounds.length + 1 % 10)) {
 
             PRC = 1;
             currentIndex = PRC * 10;
         }
-
 
         for (i = currentIndex - 10; i < currentIndex; i += 1) {
             var myBounds = [];
@@ -53,7 +48,7 @@ function getPlacesFromBounds(bounds) {
             };
             //service.radarSearch(request, callback);
             //service.nearbySearch(request, callback);
-            if (map.zoom > 6) {
+            if (map.zoom > 5) {
                 service.nearbySearch(request, nearbyCallback);
             } else {
                 service.radarSearch(request, radarCallback);
